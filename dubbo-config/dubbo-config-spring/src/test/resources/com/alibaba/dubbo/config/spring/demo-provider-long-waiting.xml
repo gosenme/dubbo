@@ -31,7 +31,7 @@
     <dubbo:protocol id="dubbo2" name="dubbo" port="20814"/>
 
     <!-- 暴露服务配置 -->
-    <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"
+    <dubbo:dubboService interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"
                    protocol="dubbo1,dubbo2"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl_LongWaiting"/>

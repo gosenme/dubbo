@@ -6,9 +6,9 @@
 <form id="weightForm" #if($actionflag=="copy") action="../../weights" #else action="../$weight.id" #end method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
         <tr>
-            <th width="100">$i18n.get("service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <th width="100">$i18n.get("dubboService")&nbsp;&nbsp;<font color='red'>*</font></th>
             <td>
-                $weight.service <input type="hidden" id="serviceName" name="service" value="$weight.service"
+                $weight.dubboService <input type="hidden" id="serviceName" name="dubboService" value="$weight.dubboService"
                                        style="ime-mode:disabled" maxlength="200"/>
             </td>
         </tr>
@@ -18,7 +18,7 @@
                 #if($actionflag=="copy")
                     <input type="text" id="address" name="address" value="$!weight.address" style="ime-mode:disabled"
                            maxlength="200"/>
-                    #if($service)
+                    #if($dubboService)
                         <select id="selectAddeess" name="selectAddeess" onchange="fnSetService(this,'address')">
                             <option value="">$i18n.get("Choose")</option>
                             #if ($addressList && $addressList.size() > 0)
@@ -63,12 +63,12 @@
         }
     }
 
-    function checkService(service) {
-        //if(service.indexOf(',') != -1) return false;
+    function checkService(dubboService) {
+        //if(dubboService.indexOf(',') != -1) return false;
 
-        var interfaceName = service;
+        var interfaceName = dubboService;
 
-        var gi = service.indexOf('/');
+        var gi = dubboService.indexOf('/');
         if (gi != -1) interfaceName = interfaceName.substring(gi + 1);
         var vi = interfaceName.indexOf(':');
         if (vi != -1) interfaceName = interfaceName.substring(0, vi);
@@ -83,7 +83,7 @@
     function check() {
         var serviceName = byId('serviceName').value.trim();
         if (serviceName == '') {
-            showAlert("$i18n.get("PleaseInput")$i18n.get("service")", 'serviceName');
+            showAlert("$i18n.get("PleaseInput")$i18n.get("dubboService")", 'serviceName');
             return false;
         }
         var address = byId('address').value.trim();

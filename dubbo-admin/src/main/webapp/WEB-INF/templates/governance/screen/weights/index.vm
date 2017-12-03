@@ -1,6 +1,6 @@
 <div class="ico_btn">
     #if($currentUser.role != "G")
-        <a href="weights/add#if($service)?service=$service#end"><img src="$rootContextPath.getURI("images/ico_add.png")"
+        <a href="weights/add#if($dubboService)?dubboService=$dubboService#end"><img src="$rootContextPath.getURI("images/ico_add.png")"
                                                                      width="9" height="9"/><span
                 class="ico_font">$i18n.get("add")</span></a>
         <span class="ico_line">|</span>
@@ -19,8 +19,8 @@
         <th>$i18n.get("address"): <input type="text" onkeyup="searchTable('table_o', 1, this.value);"
                                          onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
                 src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
-        #if(! $service)
-            <th>$i18n.get("service"): <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
+        #if(! $dubboService)
+            <th>$i18n.get("dubboService"): <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
                                              onclick="searchTable('table_o', 2, this.value);"/>&nbsp;<img
                     src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
         #end
@@ -32,8 +32,8 @@
         <tr>
             <td><input type="checkbox" name="ids" value="$weight.id"/></td>
             <td>$weight.address</td>
-            #if(! $service)
-                <td><a href="services/$weight.service/weights">$weight.service</a></td>
+            #if(! $dubboService)
+                <td><a href="services/$weight.dubboService/weights">$weight.dubboService</a></td>
             #end
             <td>$weight.weight</td>
             #if($currentUser.role != "G")

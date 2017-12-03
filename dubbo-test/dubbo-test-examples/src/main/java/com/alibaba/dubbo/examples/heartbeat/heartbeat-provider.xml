@@ -27,9 +27,9 @@
 
     <bean id="helloService" class="com.alibaba.dubbo.examples.heartbeat.impl.HelloServiceImpl"/>
 
-    <dubbo:service registry="N/A" interface="com.alibaba.dubbo.examples.heartbeat.api.HelloService"
+    <dubbo:dubboService registry="N/A" interface="com.alibaba.dubbo.examples.heartbeat.api.HelloService"
                    ref="helloService">
         <dubbo:parameter key="heartbeat" value="3000"/>
-    </dubbo:service>
+    </dubbo:dubboService>
 
 </beans>

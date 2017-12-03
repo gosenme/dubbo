@@ -31,7 +31,7 @@
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
+            <artifactId>seewo-mis-dubbo</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -150,7 +150,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>com.alibaba</groupId>
-                                    <artifactId>dubbo</artifactId>
+                                    <artifactId>seewo-mis-dubbo</artifactId>
                                     <version>${project.parent.version}</version>
                                     <outputDirectory>${project.build.directory}/dubbo</outputDirectory>
                                     <includes>META-INF/assembly/**</includes>

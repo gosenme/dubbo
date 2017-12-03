@@ -64,8 +64,8 @@
         </tr>
         <tr>
             <td>$i18n.get("ConsumerAddress"): <input id="customizedAddr" type="text" name="address" value=""
-                                                     maxlength="200"> <input type="hidden" name="service"
-                                                                             value="$service" maxlength="200"></td>
+                                                     maxlength="200"> <input type="hidden" name="dubboService"
+                                                                             value="$dubboService" maxlength="200"></td>
         </tr>
         <tr>
             <td><a onclick="if(preview_check()){document.getElementById('form1').submit();}">$i18n.get("Preview")</a>

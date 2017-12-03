@@ -6,12 +6,12 @@
 <form id="df" action="../weights" method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
         <tr>
-            <th width="100">$i18n.get("service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <th width="100">$i18n.get("dubboService")&nbsp;&nbsp;<font color='red'>*</font></th>
             <td width="300">
-                #if($service)
-                    <input type="hidden" id="multiservice" name="service" value="$service"/>$service
+                #if($dubboService)
+                    <input type="hidden" id="multiservice" name="dubboService" value="$dubboService"/>$dubboService
                 #else
-                    <textarea id="service" name="multiservice" style="ime-mode:disabled" rows="2" cols="40"></textarea>
+                    <textarea id="dubboService" name="multiservice" style="ime-mode:disabled" rows="2" cols="40"></textarea>
                     #if ($serviceList && $serviceList.size() > 0)
                         <select id="selectService" name="selectService" onchange="fnSetService(this)">
                             <option value="">$i18n.get("Choose")</option>
@@ -61,13 +61,13 @@
 
 <script language="javascript">
     function fnObtainProviderAddress() {
-        window.location.href = "../weights.htm?service=$service&_type=weights&_method=add&";
+        window.location.href = "../weights.htm?dubboService=$dubboService&_type=weights&_method=add&";
     }
 
     //通过服务名后面的选择框，快速设置service_name的值
     function fnSetService(obj) {
         if (obj.value != '') {
-            byId('service').value = (byId('service').value.length > 0 ? byId('service').value + "\n" : "" ) + obj.value;
+            byId('dubboService').value = (byId('dubboService').value.length > 0 ? byId('dubboService').value + "\n" : "" ) + obj.value;
         }
     }
 
@@ -77,12 +77,12 @@
         }
     }
 
-    function checkService(service) {
-        //if(service.indexOf(',') != -1) return false;
+    function checkService(dubboService) {
+        //if(dubboService.indexOf(',') != -1) return false;
 
-        var interfaceName = service;
+        var interfaceName = dubboService;
 
-        var gi = service.indexOf('/');
+        var gi = dubboService.indexOf('/');
         if (gi != -1) interfaceName = interfaceName.substring(gi + 1);
         var vi = interfaceName.indexOf(':');
         if (vi != -1) interfaceName = interfaceName.substring(0, vi);
@@ -95,9 +95,9 @@
     }
 
     function check() {
-        var service = byId('service').value.trim();
-        if (service == '') {
-            showAlert("$i18n.get("PleaseInput", $i18n.get("service"))", 'service');
+        var dubboService = byId('dubboService').value.trim();
+        if (dubboService == '') {
+            showAlert("$i18n.get("PleaseInput", $i18n.get("dubboService"))", 'dubboService');
             return false;
         }
         var address = byId('address').value.trim();

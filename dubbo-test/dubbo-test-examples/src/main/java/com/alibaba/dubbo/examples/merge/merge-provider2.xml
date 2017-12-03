@@ -28,6 +28,6 @@
 
     <bean id="mergeService3" class="com.alibaba.dubbo.examples.merge.impl.MergeServiceImpl3"/>
 
-    <dubbo:service group="merge3" interface="com.alibaba.dubbo.examples.merge.api.MergeService" ref="mergeService3"/>
+    <dubbo:dubboService group="merge3" interface="com.alibaba.dubbo.examples.merge.api.MergeService" ref="mergeService3"/>
 
 </beans>

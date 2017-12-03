@@ -24,6 +24,6 @@
 
     <dubbo:registry address="multicast://224.5.6.7:1234"/>
 
-    <dubbo:reference id="versionService" interface="com.alibaba.dubbo.examples.version.api.VersionService" version="*"/>
+    <dubbo:dubboReference id="versionService" interface="com.alibaba.dubbo.examples.version.api.VersionService" version="*"/>
 
 </beans>

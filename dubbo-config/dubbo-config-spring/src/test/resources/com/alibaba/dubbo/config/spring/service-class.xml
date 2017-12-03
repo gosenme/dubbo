@@ -20,16 +20,16 @@
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
     ">
 
-    <dubbo:application name="service-class"/>
+    <dubbo:application name="dubboService-class"/>
 
     <dubbo:registry address="N/A"/>
 
     <dubbo:protocol name="dubbo" port="20887"/>
 
     <!-- 暴露服务配置 -->
-    <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService"
+    <dubbo:dubboService interface="com.alibaba.dubbo.config.spring.api.DemoService"
                    class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl">
         <property name="prefix" value="welcome:"/>
-    </dubbo:service>
+    </dubbo:dubboService>
 
 </beans>

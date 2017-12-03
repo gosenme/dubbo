@@ -9,9 +9,9 @@
 <form id="df" action="../$loadbalance.id" method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
         <tr>
-            <th style="width: 100px;">$i18n.get("service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <th style="width: 100px;">$i18n.get("dubboService")&nbsp;&nbsp;<font color='red'>*</font></th>
             <td>
-                $service
+                $dubboService
             </td>
         </tr>
         <tr>

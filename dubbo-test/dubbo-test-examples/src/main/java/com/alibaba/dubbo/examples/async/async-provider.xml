@@ -28,6 +28,6 @@
 
     <bean id="asyncService" class="com.alibaba.dubbo.examples.async.impl.AsyncServiceImpl"/>
 
-    <dubbo:service interface="com.alibaba.dubbo.examples.async.api.AsyncService" ref="asyncService"/>
+    <dubbo:dubboService interface="com.alibaba.dubbo.examples.async.api.AsyncService" ref="asyncService"/>
 
 </beans>

@@ -1,18 +1,18 @@
 package com.alibaba.dubbo.config.spring.context.annotation;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.DubboReference;
+import com.alibaba.dubbo.config.annotation.DubboService;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
 
 /**
  * Dubbo Component Scan {@link Annotation},scans the classpath for annotated components that will be auto-registered as
- * Spring beans. Dubbo-provided {@link Service} and {@link Reference}.
+ * Spring beans. Dubbo-provided {@link DubboService} and {@link DubboReference}.
  *
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
- * @see Service
- * @see Reference
+ * @see DubboService
+ * @see DubboReference
  * @since 2.5.7
  */
 @Target(ElementType.TYPE)
@@ -31,7 +31,7 @@ public @interface DubboComponentScan {
     String[] value() default {};
 
     /**
-     * Base packages to scan for annotated @Service classes. {@link #value()} is an
+     * Base packages to scan for annotated @DubboService classes. {@link #value()} is an
      * alias for (and mutually exclusive with) this attribute.
      * <p>
      * Use {@link #basePackageClasses()} for a type-safe alternative to String-based
@@ -43,7 +43,7 @@ public @interface DubboComponentScan {
 
     /**
      * Type-safe alternative to {@link #basePackages()} for specifying the packages to
-     * scan for annotated @Service classes. The package of each class specified will be
+     * scan for annotated @DubboService classes. The package of each class specified will be
      * scanned.
      *
      * @return classes from the base packages to scan

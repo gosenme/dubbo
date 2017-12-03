@@ -4,7 +4,7 @@
     <span class="ico_line">|</span>
     <a href="../$provider.id"><img src="$rootContextPath.getURI("images/ico_show.png")" width="12" height="12"/><span
             class="ico_font">$i18n.get("show")</span></a>
-    #if($currentUser.hasServicePrivilege($provider.service))
+    #if($currentUser.hasServicePrivilege($provider.dubboService))
         <span class="ico_line">|</span>
         <a href="../$provider.id/add"><img src="$rootContextPath.getURI("images/ico_add.png")" width="12"
                                            height="12"/><span class="ico_font">$i18n.get("copy")</span></a>
@@ -42,11 +42,11 @@
 <br/>
 <form id="providerForm" action="../$provider.id" method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
-        #if(! $service)
+        #if(! $dubboService)
             <tr>
-                <th style="width: 100px;">$i18n.get("service"):</th>
-                <td style="width: 300px;"><input type="hidden" name="service"
-                                                 value="$provider.service"/>$provider.service</td>
+                <th style="width: 100px;">$i18n.get("dubboService"):</th>
+                <td style="width: 300px;"><input type="hidden" name="dubboService"
+                                                 value="$provider.dubboService"/>$provider.dubboService</td>
             </tr>
         #end
         <tr>

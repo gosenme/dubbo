@@ -143,7 +143,7 @@
             <div class="search_categories">
                 <ul>
                     <li id="one1" onclick="setTab2('one',1,3); return false;" class="active"><a href="#">$i18n.get(
-                        "service")</a><span class="search_line">|</span></li>
+                        "dubboService")</a><span class="search_line">|</span></li>
                     <li id="one2" onclick="setTab2('one',2,3); return false;"><a href="#">$i18n.get(
                         "application")</a><span class="search_line">|</span></li>
                     <li id="one3" onclick="setTab2('one',3,3); return false;"><a href="#">$i18n.get("address")</a><span
@@ -209,7 +209,7 @@
             var searchContent = document.getElementById('searchContent');
             var keyword = searchContent.value;
             if (keyword == ''
-                    || keyword == '$i18n.get("please.input.service")'
+                    || keyword == '$i18n.get("please.input.dubboService")'
                     || keyword == '$i18n.get("please.input.application")'
                     || keyword == '$i18n.get("please.input.address")') {
                 keyword = '*';
@@ -224,7 +224,7 @@
             }
             var msg = "";
             if (cursel == 1) {
-                msg = '$i18n.get("please.input.service")';
+                msg = '$i18n.get("please.input.dubboService")';
                 searchType = "services";
             } else if (cursel == 2) {
                 msg = '$i18n.get("please.input.application")';
@@ -234,7 +234,7 @@
                 searchType = "addresses";
             }
 
-            if (obj.value == '' || obj.value == '$i18n.get("please.input.service")'
+            if (obj.value == '' || obj.value == '$i18n.get("please.input.dubboService")'
                     || obj.value == '$i18n.get("please.input.application")'
                     || obj.value == '$i18n.get("please.input.address")') {
                 obj.value = msg;
@@ -246,7 +246,7 @@
         }
         function fnonfocus() {
             var obj = document.getElementById('searchContent');
-            if (obj.value == '$i18n.get("please.input.service")'
+            if (obj.value == '$i18n.get("please.input.dubboService")'
                     || obj.value == '$i18n.get("please.input.application")'
                     || obj.value == '$i18n.get("please.input.address")') {
                 obj.value = '';
@@ -256,7 +256,7 @@
             var obj = document.getElementById('searchContent');
             if (obj.value == '') {
                 if (searchType == 'services')
-                    obj.value = '$i18n.get("please.input.service")';
+                    obj.value = '$i18n.get("please.input.dubboService")';
                 else if (searchType == 'applications')
                     obj.value = '$i18n.get("please.input.application")';
                 else if (searchType == 'addresses')

@@ -37,9 +37,9 @@
 
     <!--
     <request-contexts:rewrite id="restful" xmlns="http://www.alibaba.com/schema/services/request-contexts">
-		<rule pattern="/service/(\w+)/providers">
-			<substitution uri="/service/providers.htm" flags="L,R">
-				<parameter key="service" value="$1" />
+		<rule pattern="/dubboService/(\w+)/providers">
+			<substitution uri="/dubboService/providers.htm" flags="L,R">
+				<parameter key="dubboService" value="$1" />
 			</substitution>
 		</rule>
 	</request-contexts:rewrite>

@@ -26,7 +26,7 @@
     <version>2.5.8</version>
     <packaging>jar</packaging>
     <name>Dubbo</name>
-    <description>Dubbo is a distributed service framework enpowers applications with service import/export capability
+    <description>Dubbo is a distributed dubboService framework enpowers applications with dubboService import/export capability
         with high performance RPC.
     </description>
     <url>http://dubbo.io</url>

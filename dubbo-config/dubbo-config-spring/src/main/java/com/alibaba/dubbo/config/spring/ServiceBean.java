@@ -22,7 +22,7 @@ import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.ProviderConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
-import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.DubboService;
 import com.alibaba.dubbo.config.spring.extension.SpringExtensionFactory;
 
 import org.springframework.beans.factory.BeanFactoryUtils;
@@ -52,7 +52,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     private static transient ApplicationContext SPRING_CONTEXT;
 
-    private final transient Service service;
+    private final transient DubboService dubboService;
 
     private transient ApplicationContext applicationContext;
 
@@ -62,12 +62,12 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     public ServiceBean() {
         super();
-        this.service = null;
+        this.dubboService = null;
     }
 
-    public ServiceBean(Service service) {
-        super(service);
-        this.service = service;
+    public ServiceBean(DubboService dubboService) {
+        super(dubboService);
+        this.dubboService = dubboService;
     }
 
     public static ApplicationContext getSpringContext() {
@@ -104,18 +104,18 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     }
 
     /**
-     * Gets associated {@link Service}
+     * Gets associated {@link DubboService}
      *
-     * @return associated {@link Service}
+     * @return associated {@link DubboService}
      */
-    public Service getService() {
-        return service;
+    public DubboService getDubboService() {
+        return dubboService;
     }
 
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if (isDelay() && !isExported() && !isUnexported()) {
             if (logger.isInfoEnabled()) {
-                logger.info("The service ready on spring started. service: " + getInterface());
+                logger.info("The dubboService ready on spring started. dubboService: " + getInterface());
             }
             export();
         }

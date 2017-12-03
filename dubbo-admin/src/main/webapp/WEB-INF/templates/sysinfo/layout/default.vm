@@ -31,10 +31,10 @@
     </div>
     <div class="crumbs">
         <a href="/">$i18n.get("home")</a> &gt; $i18n.get("system.management")
-        #if($service)
+        #if($dubboService)
             &gt; <a href="../../#if($_method == "show" || $_method == "add")../#elseif($_method ==
             "edit")../../#{end}services">$i18n.get("services")</a>
-            &gt; $service
+            &gt; $dubboService
         #elseif($application)
             &gt; <a href="../../#if($_method == "show" || $_method == "add")../#elseif($_method ==
             "edit")../../#{end}applications">$i18n.get("applications")</a>

@@ -48,7 +48,7 @@
             "confirm.batch.cancel.mock")', 'consumers/' + getChecked('ids') + '/recover');} return false;"><img
                 src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                 class="ico_font">$i18n.get("batch.cancel.mock")</span></a>
-        #if($service)
+        #if($dubboService)
             <span class="ico_line">|</span>
             <a href="#"
                onclick="showConfirm('$i18n.get("confirm.all.force.mock")', 'consumers/0/allshield'); return false;"><img
@@ -71,7 +71,7 @@
 <table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
     <tr>
         <th width="20"><input type="checkbox" onclick="checkAll('table_o', 'ids', this.checked)"/></th>
-        <th>#if($address)$i18n.get("service")#else$i18n.get("address")#end: <input type="text" style="width: 60px;"
+        <th>#if($address)$i18n.get("dubboService")#else$i18n.get("address")#end: <input type="text" style="width: 60px;"
                                                                                    onkeyup="searchTable('table_o', 1, this.value);"
                                                                                    onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
                 src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
@@ -111,7 +111,7 @@
         <tr>
             <td><input type="checkbox" name="ids" value="$consumer.id"/></td>
             <td>
-                <a href="consumers/$consumer.id">#if($address)$tool.getSimpleName($consumer.service)#else$consumer.address#end</a>
+                <a href="consumers/$consumer.id">#if($address)$tool.getSimpleName($consumer.dubboService)#else$consumer.address#end</a>
             </td>
             <td>$consumer.application</td>
             <td>
@@ -147,51 +147,51 @@
             </td>
             #if($currentUser.role != "G")
                 <td>
-                    #if($currentUser.hasServicePrivilege($consumer.service))
+                    #if($currentUser.hasServicePrivilege($consumer.dubboService))
                         <a href="consumers/$consumer.id/edit"><img src="$rootContextPath.getURI("images/ico_edit.png")"
                                                                    width="12" height="12"/><span
                                 class="ico_font">$i18n.get("edit")</span></a>
                         <span class="ico_line">|</span>
                         #if($tool.isInBlackList($consumer))
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.allow")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/allow'); return false;"><img
+                                "confirm.allow")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/allow'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("allow")</span></a>
                         #else
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.forbid")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/forbid'); return false;"><img
+                                "confirm.forbid")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/forbid'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_disable.png")" width="12"
                                     height="12"/><span class="ico_font">$i18n.get("forbid")</span></a>
                         #end
                         <span class="ico_line">|</span>
                         #if($mock.equals("force%3Areturn+null"))
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.cancel.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/recover'); return false;"><img
+                                "confirm.cancel.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/recover'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("cancel.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.fail.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/tolerant'); return false;"><img
+                                "confirm.fail.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/tolerant'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_run.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("fail.mock")</span></a>
                         #elseif ($mock.equals("fail%3Areturn+null"))
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.force.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/shield'); return false;"><img
+                                "confirm.force.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/shield'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_cancel.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("force.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.cancel.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/recover'); return false;"><img
+                                "confirm.cancel.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/recover'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("cancel.mock")</span></a>
                         #else
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.force.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/shield'); return false;"><img
+                                "confirm.force.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/shield'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_cancel.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("force.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.fail.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.service)', 'consumers/$consumer.id/tolerant'); return false;"><img
+                                "confirm.fail.mock")', '$consumer.address -&gt; $tool.getSimpleName($consumer.dubboService)', 'consumers/$consumer.id/tolerant'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_run.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("fail.mock")</span></a>
                         #end

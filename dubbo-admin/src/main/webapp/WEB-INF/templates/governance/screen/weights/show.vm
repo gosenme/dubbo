@@ -17,9 +17,9 @@
 <form id="weightForm" action="../$weight.id" method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
         <tr>
-            <th style="width: 100px;">$i18n.get("service")&nbsp;&nbsp;<font color='red'>*</font></th>
+            <th style="width: 100px;">$i18n.get("dubboService")&nbsp;&nbsp;<font color='red'>*</font></th>
             <td>
-                $weight.service
+                $weight.dubboService
             </td>
         </tr>
         <tr>
@@ -50,7 +50,7 @@
     function check() {
         var serviceName = byId('serviceName').value.trim();
         if (serviceName == '') {
-            showAlert("$i18n.get("PleaseInput", $i18n.get("service"))", 'serviceName');
+            showAlert("$i18n.get("PleaseInput", $i18n.get("dubboService"))", 'serviceName');
             return false;
         }
         var consumerAddress = byId('consumerAddress').value.trim();

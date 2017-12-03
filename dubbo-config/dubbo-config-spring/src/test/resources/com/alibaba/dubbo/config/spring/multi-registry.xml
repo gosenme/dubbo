@@ -34,7 +34,7 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- 暴露服务配置 -->
-    <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService" registry="reg2"/>
+    <dubbo:dubboService interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService" registry="reg2"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl"/>
 

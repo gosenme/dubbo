@@ -16,10 +16,10 @@
         <!-- 根据异常，选择适当的错误页面及statusCode。 -->
         <handleException defaultPage="error_other.vm">
             <on-exception
-                    type="com.alibaba.citrus.service.template.TemplateNotFoundException"
+                    type="com.alibaba.citrus.dubboService.template.TemplateNotFoundException"
                     statusCode="404" page="error_404.vm"/>
             <on-exception
-                    type="com.alibaba.citrus.service.moduleloader.ModuleNotFoundException"
+                    type="com.alibaba.citrus.dubboService.moduleloader.ModuleNotFoundException"
                     statusCode="404" page="error_404.vm"/>
         </handleException>
 

@@ -5,13 +5,13 @@
 <br/>
 <form id="providerForm" action="#if($id)../#end../providers" method="POST">
     <table cellpadding="0" cellspacing="0" class="info">
-        #if(! $service)
-            #if($provider.service)
-                <input type="hidden" id="service" name="service" value="$!provider.service"/>
+        #if(! $dubboService)
+            #if($provider.dubboService)
+                <input type="hidden" id="dubboService" name="dubboService" value="$!provider.dubboService"/>
             #else
                 <tr>
-                    <th style="width: 100px;">$i18n.get("service"):</th>
-                    <td style="width: 300px;"><input id="service" type="text" name="service" class="setting_input"
+                    <th style="width: 100px;">$i18n.get("dubboService"):</th>
+                    <td style="width: 300px;"><input id="dubboService" type="text" name="dubboService" class="setting_input"
                                                      style="width: 200px;"/>
                         <select onchange="fnSetService(this)">
                             <option value="">$i18n.get("Choose")</option>
@@ -26,7 +26,7 @@
         <tr>
             <th style="width: 100px;">$i18n.get("url"):</th>
             <td><input type="text" id="url" name="url"
-                       value="#if($provider.url)$!provider.url?$!provider.parameters#{else}dubbo://#if($address)$address#{else}0.0.0.0:20880#end/#if($service)$tool.getInterface($service)#{else}com.xxx.XxxService#end?application=#if($application)$application#{else}xxx#end#if($tool.getGroup($service))&group=$tool.getGroup($service)#end#if($tool.getVersion($service))&version=$tool.getVersion($service)#end#end"
+                       value="#if($provider.url)$!provider.url?$!provider.parameters#{else}dubbo://#if($address)$address#{else}0.0.0.0:20880#end/#if($dubboService)$tool.getInterface($dubboService)#{else}com.xxx.XxxService#end?application=#if($application)$application#{else}xxx#end#if($tool.getGroup($dubboService))&group=$tool.getGroup($dubboService)#end#if($tool.getVersion($dubboService))&version=$tool.getVersion($dubboService)#end#end"
                        class="setting_input" style="width: 700px;" maxlength="2000"/></td>
         </tr>
         <tr>
@@ -57,19 +57,19 @@
     //通过服务名后面的选择框，快速设置service_name的值
     function fnSetService(obj) {
         if (obj.value != '') {
-            var old = document.getElementById('service').value;
+            var old = document.getElementById('dubboService').value;
             if (old == '') {
                 old = "com.xxx.XxxService";
             }
             byId('url').value = byId('url').value.replace(old, obj.value);
-            document.getElementById('service').value = obj.value;
+            document.getElementById('dubboService').value = obj.value;
         }
     }
     function check() {
-        #if(! $service)
-            var service = byId('service').value.trim();
-            if (service == '') {
-                showAlert("$i18n.get("PleaseInput")$i18n.get("service")", 'service');
+        #if(! $dubboService)
+            var dubboService = byId('dubboService').value.trim();
+            if (dubboService == '') {
+                showAlert("$i18n.get("PleaseInput")$i18n.get("dubboService")", 'dubboService');
                 return false;
             }
         #end

@@ -31,7 +31,7 @@
     <dubbo:protocol name="dubbo" port="20885"/>
 
     <!-- 服务提供者暴露服务配置 -->
-    <dubbo:service id="helloService" interface="com.alibaba.dubbo.rpc.benchmark.DemoService"
+    <dubbo:dubboService id="helloService" interface="com.alibaba.dubbo.rpc.benchmark.DemoService"
                    ref="demo.local"/>
 
 </beans>

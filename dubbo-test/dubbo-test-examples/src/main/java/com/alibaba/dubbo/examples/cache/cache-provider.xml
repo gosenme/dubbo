@@ -28,6 +28,6 @@
 
     <bean id="cacheService" class="com.alibaba.dubbo.examples.cache.impl.CacheServiceImpl"/>
 
-    <dubbo:service interface="com.alibaba.dubbo.examples.cache.api.CacheService" ref="cacheService"/>
+    <dubbo:dubboService interface="com.alibaba.dubbo.examples.cache.api.CacheService" ref="cacheService"/>
 
 </beans>

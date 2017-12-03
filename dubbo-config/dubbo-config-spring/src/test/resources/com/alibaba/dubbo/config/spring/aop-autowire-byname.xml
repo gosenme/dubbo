@@ -52,9 +52,9 @@
     <dubbo:registry address="N/A"/>
 
     <!-- 引用服务配置 -->
-    <dubbo:reference id="demoService" interface="com.alibaba.dubbo.config.spring.api.DemoService"
+    <dubbo:dubboReference id="demoService" interface="com.alibaba.dubbo.config.spring.api.DemoService"
                      url="dubbo://127.0.0.1:20813" scope="remote">
-    </dubbo:reference>
+    </dubbo:dubboReference>
 
     <bean id="demoActionBySetter" class="com.alibaba.dubbo.config.spring.action.DemoActionBySetter"/>
 

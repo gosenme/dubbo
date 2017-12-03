@@ -1,5 +1,6 @@
 package com.alibaba.dubbo.config.spring.context.annotation;
 
+import com.alibaba.dubbo.config.annotation.DubboService;
 import com.alibaba.dubbo.config.spring.api.Box;
 import com.alibaba.dubbo.config.spring.api.DemoService;
 import org.springframework.stereotype.Service;
@@ -7,12 +8,12 @@ import org.springframework.stereotype.Service;
 ;
 
 /**
- * {@link DemoService} Service implementation
+ * {@link DemoService} DubboService implementation
  *
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
  * @since 2.5.7
  */
-@com.alibaba.dubbo.config.annotation.Service(
+@DubboService(
         version = "2.5.7",
         application = "${demo.service.application}",
         protocol = "${demo.service.protocol}",

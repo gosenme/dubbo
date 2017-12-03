@@ -52,7 +52,7 @@ echo please install mysql client first!
 goto FAILED
 
 :CANT_LOGIN
-echo please ensure: 1. mysql service is on. 2. root password is 111111
+echo please ensure: 1. mysql dubboService is on. 2. root password is 111111
 goto FAILED
 
 :SQLPATH_INVALID

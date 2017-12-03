@@ -14,6 +14,6 @@
 
     <bean id="demoService" class="com.alibaba.dubbo.rpc.protocol.thrift.ThriftDemoImpl"/>
 
-    <dubbo:service protocol="thrift" interface="com.alibaba.dubbo.rpc.gen.thrift.Demo$Iface" ref="demoService"/>
+    <dubbo:dubboService protocol="thrift" interface="com.alibaba.dubbo.rpc.gen.thrift.Demo$Iface" ref="demoService"/>
 
 </beans>

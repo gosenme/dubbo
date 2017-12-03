@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author ding.lid
  */
-public class ReferenceConfigCacheTest {
+public class DubboReferenceConfigCacheTest {
     @Before
     public void setUp() throws Exception {
         MockReferenceConfig.setCounter(0);

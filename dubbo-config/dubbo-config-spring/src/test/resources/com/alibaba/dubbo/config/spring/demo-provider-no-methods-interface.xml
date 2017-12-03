@@ -27,7 +27,7 @@
     <dubbo:registry address="N/A"/>
 
     <!-- 暴露服务配置 -->
-    <dubbo:service id="service" interface="com.alibaba.dubbo.config.spring.api.DemoServiceSon" ref="demoService"/>
+    <dubbo:dubboService id="dubboService" interface="com.alibaba.dubbo.config.spring.api.DemoServiceSon" ref="demoService"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceSonImpl"/>
 

@@ -6,10 +6,10 @@
 <form id="df" action="../overrides/create" method="POST">
 
     <table cellpadding="0" cellspacing="0" class="info" id="table1">
-        #if(! $service)
+        #if(! $dubboService)
             <tr>
-                <td style="width: 100px;"><b>$i18n.get("service"):</b></td>
-                <td style="width: 300px;"><input id="service" type="text" name="service" class="setting_input"
+                <td style="width: 100px;"><b>$i18n.get("dubboService"):</b></td>
+                <td style="width: 300px;"><input id="dubboService" type="text" name="dubboService" class="setting_input"
                                                  style="width: 200px;"/>
                     <select onchange="fnSetService(this)">
                         <option value="">$i18n.get("Choose")</option>
@@ -20,10 +20,10 @@
                 </td>
             </tr>
         #else
-            <td><b>$i18n.get("service"):</b></td>
+            <td><b>$i18n.get("dubboService"):</b></td>
             <td
-            ">$service<input id="service" type="hidden" name="service" class="setting_input" style="width: 200px;"
-                             value="$service"/>
+            ">$dubboService<input id="dubboService" type="hidden" name="dubboService" class="setting_input" style="width: 200px;"
+                             value="$dubboService"/>
         #end
         <tr>
             <td><b>$i18n.get("ConsumerApplication"):</b></td>
@@ -101,14 +101,14 @@
 <script language="javascript">
     function fnSetService(obj) {
         if (obj.value != '') {
-            document.getElementById('service').value = obj.value;
+            document.getElementById('dubboService').value = obj.value;
         }
     }
 
     function check() {
-        var service = byId('service').value.trim();
-        if (service == '') {
-            showAlert("$i18n.get("PleaseInput", $i18n.get("service"))", 'service');
+        var dubboService = byId('dubboService').value.trim();
+        if (dubboService == '') {
+            showAlert("$i18n.get("PleaseInput", $i18n.get("dubboService"))", 'dubboService');
             return false;
         }
 

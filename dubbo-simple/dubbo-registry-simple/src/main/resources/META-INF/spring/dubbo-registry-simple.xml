@@ -29,7 +29,7 @@
 
     <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" heartbeat="180000"/>
 
-    <dubbo:service id="registryServiceConfig" interface="com.alibaba.dubbo.registry.RegistryService"
+    <dubbo:dubboService id="registryServiceConfig" interface="com.alibaba.dubbo.registry.RegistryService"
                    ref="registryService" registry="N/A" ondisconnect="disconnect" callbacks="1000">
         <dubbo:method name="subscribe">
             <dubbo:argument index="1" callback="true"/>
@@ -37,7 +37,7 @@
         <dubbo:method name="unsubscribe">
             <dubbo:argument index="1" callback="false"/>
         </dubbo:method>
-    </dubbo:service>
+    </dubbo:dubboService>
 
     <bean id="registryService" class="com.alibaba.dubbo.registry.simple.SimpleRegistryService"/>
 

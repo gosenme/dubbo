@@ -1,6 +1,6 @@
 <div class="ico_btn">
     #if($currentUser.role != "G")
-        <a href="accesses/add#if($service)?service=$service#end"><img
+        <a href="accesses/add#if($dubboService)?dubboService=$dubboService#end"><img
                 src="$rootContextPath.getURI("images/ico_add.png")" width="9" height="9"/><span
                 class="ico_font">$i18n.get("add")</span></a>
         <span class="ico_line">|</span>
@@ -20,8 +20,8 @@
                                                   onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
                 src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
         #set($column = 2) ## 是否显示 服务名一列
-        #if(!$service)
-            <th>$i18n.get("service"):
+        #if(!$dubboService)
+            <th>$i18n.get("dubboService"):
                 <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
                        onclick="searchTable('table_o', 2, this.value);"/>&nbsp;
                 <img src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/>
@@ -41,17 +41,17 @@
     </tr>
     #foreach($access in $accesses)
         <tr>
-            <td><input type="checkbox" name="ids" value="$access.service=$access.address"/></td>
+            <td><input type="checkbox" name="ids" value="$access.dubboService=$access.address"/></td>
             <td>$access.address</td>
-            #if(!$service)
-                <td><a href="services/$access.service/accesses">$access.service</a></td>
+            #if(!$dubboService)
+                <td><a href="services/$access.dubboService/accesses">$access.dubboService</a></td>
             #end
             <td>#if($access.allow==true) <font color="green">$i18n.get("whitelist")</font> #elseif($access.allow==false)
                 <font color="red">$i18n.get("blacklist")</font> #end</td>
             #if($currentUser.role != "G")
                 <td>
                     <a href="#" onclick="showConfirm('$i18n.get(
-                        "confirm.delete")', '$access.address', 'accesses/delete?accesses=$access.service=$access.address'); return false;">
+                        "confirm.delete")', '$access.address', 'accesses/delete?accesses=$access.dubboService=$access.address'); return false;">
                         <img src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/>
                         <span class="ico_font">$i18n.get("delete")</span></a>
                 </td>

@@ -10,8 +10,8 @@
         <th>$i18n.get("username"): <input type="text" onkeyup="searchTable('table_o', 1, this.value);"
                                           onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
                 src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
-        #if(! $service)
-            <th>$i18n.get("service"): <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
+        #if(! $dubboService)
+            <th>$i18n.get("dubboService"): <input type="text" onkeyup="searchTable('table_o', 2, this.value);"
                                              onclick="searchTable('table_o', 2, this.value);"/>&nbsp;<img
                     src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
         #end
@@ -21,14 +21,14 @@
     #foreach($owner in $owners)
         <tr>
             <td>$owner.username</td>
-            #if(! $service)
-                <td><a href="services/$owner.service/owners">$owner.service</a></td>
+            #if(! $dubboService)
+                <td><a href="services/$owner.dubboService/owners">$owner.dubboService</a></td>
             #end
             #if($currentUser.role != "G")
                 <td>
-                    #if($currentUser.hasServicePrivilege($owner.service))
+                    #if($currentUser.hasServicePrivilege($owner.dubboService))
                         <a href="#" onclick="showConfirm('$i18n.get(
-                            "confirm.delete")', '$owner.username', 'owners/0/delete?username=$owner.username#if(! $service)&service=$owner.service#end'); return false;"><img
+                            "confirm.delete")', '$owner.username', 'owners/0/delete?username=$owner.username#if(! $dubboService)&dubboService=$owner.dubboService#end'); return false;"><img
                                 src="$rootContextPath.getURI("images/ico_delete.png")" width="12" height="12"/><span
                                 class="ico_font">$i18n.get("delete")</span></a>
                     #end

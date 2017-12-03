@@ -7,7 +7,7 @@
 #else
 <div class="ico_btn">
     #if($currentUser.role != "G")
-        #if($service)
+        #if($dubboService)
             <a href="#" onclick="if(! hasCheckbox('ids')) { showAlert('$i18n.get(
                 "empty.list")'); } else if(! hasChecked('ids')) { showAlert('$i18n.get(
                 "please.select")'); } else { showConfirm('$i18n.get(
@@ -61,7 +61,7 @@
             <option value="$i18n.get("provider")">$i18n.get("provider")</option>
             <option value="$i18n.get("consumer")">$i18n.get("consumer")</option>
         </select></th>
-        #if($service)
+        #if($dubboService)
             <th width="110">$i18n.get("mock"): <select onchange="searchTable('table_o', 3, this.value);"
                                                        onclick="searchTable('table_o', 3, this.value);">
                 <option value="">$i18n.get("all")</option>
@@ -75,7 +75,7 @@
     #foreach($application in $applications)
         <tr>
             <td><input type="checkbox" name="ids" value="$application"/></td>
-            <td>#if($service)$application#else<a href="applications/$application/services">$application</a>#end</td>
+            <td>#if($dubboService)$application#else<a href="applications/$application/services">$application</a>#end</td>
             <td>
                 #if($providerApplications.contains($application))
                     <font color="green">$i18n.get("provider")</font>
@@ -84,7 +84,7 @@
                     <font color="blue">$i18n.get("consumer")</font>
                 #end
             </td>
-            #if($service)
+            #if($dubboService)
                 <td>
                     #if($consumerApplications.contains($application))
                         #set($mock=$tool.getOverridesMock($overrides.get($application)))
@@ -102,32 +102,32 @@
                         #set($mock=$tool.getOverridesMock($overrides.get($application)))
                         #if($mock == "force%3Areturn+null")
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.cancel.mock")', '$application -&gt; $service', 'applications/0/recover?application=$application'); return false;"><img
+                                "confirm.cancel.mock")', '$application -&gt; $dubboService', 'applications/0/recover?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("cancel.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.fail.mock")', '$application -&gt; $service', 'applications/0/tolerant?application=$application'); return false;"><img
+                                "confirm.fail.mock")', '$application -&gt; $dubboService', 'applications/0/tolerant?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_run.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("fail.mock")</span></a>
                         #elseif ($mock == "fail%3Areturn+null")
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.force.mock")', '$application -&gt; $service', 'applications/0/shield?application=$application'); return false;"><img
+                                "confirm.force.mock")', '$application -&gt; $dubboService', 'applications/0/shield?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_disable.png")" width="12"
                                     height="12"/><span class="ico_font">$i18n.get("force.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.cancel.mock")', '$application -&gt; $service', 'applications/0/recover?application=$application'); return false;"><img
+                                "confirm.cancel.mock")', '$application -&gt; $dubboService', 'applications/0/recover?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_enable.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("cancel.mock")</span></a>
                         #else
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.force.mock")', '$application -&gt; $service', 'applications/0/shield?application=$application'); return false;"><img
+                                "confirm.force.mock")', '$application -&gt; $dubboService', 'applications/0/shield?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_disable.png")" width="12"
                                     height="12"/><span class="ico_font">$i18n.get("force.mock")</span></a>
                             <span class="ico_line">|</span>
                             <a href="#" onclick="showConfirm('$i18n.get(
-                                "confirm.fail.mock")', '$application -&gt; $service', 'applications/0/tolerant?application=$application'); return false;"><img
+                                "confirm.fail.mock")', '$application -&gt; $dubboService', 'applications/0/tolerant?application=$application'); return false;"><img
                                     src="$rootContextPath.getURI("images/ico_run.png")" width="12" height="12"/><span
                                     class="ico_font">$i18n.get("fail.mock")</span></a>
                         #end

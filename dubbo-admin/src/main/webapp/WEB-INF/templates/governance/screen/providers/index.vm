@@ -43,7 +43,7 @@
 <table cellpadding="0" cellspacing="0" class="list list_dubbo" id="table_o">
     <tr>
         <th width="20"><input type="checkbox" onclick="checkAll('table_o', 'ids', this.checked)"/></th>
-        <th>#if($address)$i18n.get("service")#else$i18n.get("address")#end: <input type="text" style="width: 60px;"
+        <th>#if($address)$i18n.get("dubboService")#else$i18n.get("address")#end: <input type="text" style="width: 60px;"
                                                                                    onkeyup="searchTable('table_o', 1, this.value);"
                                                                                    onclick="searchTable('table_o', 1, this.value);"/>&nbsp;<img
                 src="$rootContextPath.getURI("images/ico_search.png")" width="12" height="12"/></th>
@@ -78,7 +78,7 @@
         <tr>
             <td><input type="checkbox" name="ids" value="$provider.id"/></td>
             <td>
-                <a href="providers/$provider.id">#if($address)$tool.getSimpleName($provider.service)#else$provider.address#end</a>
+                <a href="providers/$provider.id">#if($address)$tool.getSimpleName($provider.dubboService)#else$provider.address#end</a>
             </td>
             <td>$tool.getProviderWeight($provider)</td>
             <td>#if($provider.dynamic)<font color="green">$i18n.get("dynamic")</font>#else<font color="blue">$i18n.get(
@@ -124,7 +124,7 @@
             </td>
             #if($currentUser.role != "G")
                 <td>
-                    #if($currentUser.hasServicePrivilege($provider.service))
+                    #if($currentUser.hasServicePrivilege($provider.dubboService))
                         <a href="providers/$provider.id/edit"><img src="$rootContextPath.getURI("images/ico_edit.png")"
                                                                    width="12" height="12"/><span
                                 class="ico_font">$i18n.get("edit")</span></a>

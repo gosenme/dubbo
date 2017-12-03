@@ -57,9 +57,9 @@
             </td>
         </tr>
         <tr>
-            <th>$i18n.get("service"): <font color='red'>*</font></th>
+            <th>$i18n.get("dubboService"): <font color='red'>*</font></th>
             <td colspan="2">
-                <input type="hidden" id="service" name="service" value="$service"/>$service
+                <input type="hidden" id="dubboService" name="dubboService" value="$dubboService"/>$dubboService
             </td>
             <td></td>
         </tr>
@@ -204,12 +204,12 @@
             showAlert("$i18n.get("PleaseInput", $i18n.get("route.name"))", 'name');
             return false;
         }
-        if (byId('service').value.trim() == '') {
-            showAlert("$i18n.get("PleaseInput", $i18n.get("service"))", 'service');
+        if (byId('dubboService').value.trim() == '') {
+            showAlert("$i18n.get("PleaseInput", $i18n.get("dubboService"))", 'dubboService');
             return false;
         }
-        if (byId('service').value.indexOf('*') != -1 || byId('service').value.indexOf(',') != -1) {
-            showAlert("Service name can not contain '*' or ','.", 'service');
+        if (byId('dubboService').value.indexOf('*') != -1 || byId('dubboService').value.indexOf(',') != -1) {
+            showAlert("DubboService name can not contain '*' or ','.", 'dubboService');
             return false;
         }
 

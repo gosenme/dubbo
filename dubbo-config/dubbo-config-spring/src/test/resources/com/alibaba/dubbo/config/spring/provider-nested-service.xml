@@ -20,7 +20,7 @@
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
     ">
 
-    <dubbo:application name="service-class"/>
+    <dubbo:application name="dubboService-class"/>
 
     <dubbo:registry address="N/A"/>
 
@@ -28,11 +28,11 @@
 
     <dubbo:provider timeout="2000"/>
 
-    <dubbo:service id="serviceConfig" interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"/>
+    <dubbo:dubboService id="serviceConfig" interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"/>
 
     <!-- 嵌套配置 -->
     <dubbo:provider timeout="1000">
-        <dubbo:service id="serviceConfig2" interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"
+        <dubbo:dubboService id="serviceConfig2" interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"
                        group="demo2"/>
     </dubbo:provider>
 
